@@ -125,7 +125,7 @@ class OpenRouterProvider(OpenAIProvider):
     Two things follow from that. json_mode is None because response_format
     support depends on whichever model gets routed to. And the default
     `openrouter/auto-beta` lets OpenRouter choose per request, which means
-    report.pdf will record the literal string "openrouter/auto-beta" rather
+    report.html will record the literal string "openrouter/auto-beta" rather
     than the model that actually served - pass an explicit `vendor/model`
     slug (e.g. "anthropic/claude-opus-5") if the report needs to name a real
     model.

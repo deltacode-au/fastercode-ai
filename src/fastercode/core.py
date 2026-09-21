@@ -377,10 +377,6 @@ class refactor:
         storage.overwrite_refactored_version_code(json_path, version, real_lines)
         return real_lines
 
-    def write(self):
-        # Writes captured data to JSON.
-        return
-
     def swap_code(self, func, version):
         # Swaps a refactored.json version's code into the original source
         # file where the tracked function actually lives, backing up the
@@ -405,11 +401,6 @@ class refactor:
 
         return backup_path
 
-    def constraint(self):
-        # Define which vars to constrain / keep the same.
-        # lines of code to keep the same.
-        return
-
     def keep(self, func, variables=None, lines=None):
         # Registers which local variables and/or source line ranges to
         # capture on every future call of a .track-decorated function.
@@ -432,10 +423,6 @@ class refactor:
             "variables": list(variables) if variables else [],
             "lines": line_ranges,
         }
-
-    def cost(self):
-        # return cost estimate of refactor using BYO LLM API
-        return
 
     def run_job(self, yaml_path):
         # Runs a single YAML-configured job (see orchestrator.py): imports
@@ -905,8 +892,8 @@ class refactor:
         storage.finalize_optimise_run_dir(json_path, run_dirs["json_dir"])
 
         from . import report
-        report_path = report.generate_pdf(
-            result, os.path.join(run_dirs["run_dir"], "report.pdf"),
+        report_path = report.generate_html(
+            result, os.path.join(run_dirs["run_dir"], "report.html"),
             transcript_entries=transcript_entries,
         )
 

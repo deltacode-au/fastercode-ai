@@ -90,7 +90,7 @@ Use `get_run(run_dir)` to quote specific measurements back to the user, and
 
 ## What gets written
 
-`.fastercode/<hash>/optimise_runs/<timestamp>/` — `report.pdf`, the full
+`.fastercode/<hash>/optimise_runs/<timestamp>/` — `report.html`, the full
 measurements in `json/optimise.json`, and `backups/` holding the exact code that
 was executed for each try. Every attempt records `code_sha256`, the hash of the
 bytes that produced its numbers, so a reviewer can check a claim against what

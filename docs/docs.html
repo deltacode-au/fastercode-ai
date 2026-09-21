@@ -760,11 +760,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     position: sticky;
     top: 0;
     z-index: 60;
-    /* Opaque base + the tint as a layer: --accent-soft is translucent in
-       dark mode (rgba(...,0.14)), and a pinned bar must not let the page
-       scroll through behind it. */
+    /* Opaque base + the tint as a layer: a pinned bar must not let the page
+       scroll through behind it. A stronger tint than --accent-soft (0.14) is
+       used here on purpose - at that low an opacity over the near-black
+       --bg, the green reads as a muddy dark olive rather than a clean green. */
     background-color: var(--bg);
-    background-image: linear-gradient(var(--accent-soft), var(--accent-soft));
+    background-image: linear-gradient(rgba(57,255,20,0.28), rgba(57,255,20,0.28));
     border-bottom: 1px solid var(--border);
   }
   .update-banner-inner {
@@ -865,7 +866,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   <main>
     <header class="hero prose">
       <h1>fastercode</h1>
-      <p class="tagline">Reference documentation. fastercode.ai is the proof layer for AI-written code. Independently verify agent-generated rewrites against evidence you choose.&nbsp;</p>
+      <p class="tagline">Reference documentation. Make your code faster. Automatically optimise performance and verify every improvement.&nbsp;</p>
       <p class="tagline">Use fastercode.ai directly from supported coding agents through MCP or use the Python API for manual control.</p>
       <div class="prose" style="margin-top:1.25rem;">
         <p>New here? Start with <a href="#quickstart">Agent quickstart</a>, or see <a href="index.html">what fastercode is</a>.</p>
@@ -956,7 +957,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         </div>
 
         <h3 style="margin: 32px 0 8px; font-size: 1.05rem;">1.5 · What gets written</h3>
-        <p>Everything lands under <code>.fastercode/&lt;hash&gt;/optimise_runs/&lt;timestamp&gt;/</code>: a <code>report.pdf</code>, the full measurements in <code>json/optimise.json</code>, and <code>backups/</code> holding the exact code executed for each try. You can also ask your Agent where the results were saved and a link to the directory.&nbsp;</p>
+        <p>Everything lands under <code>.fastercode/&lt;hash&gt;/optimise_runs/&lt;timestamp&gt;/</code>: a <code>report.html</code>, the full measurements in <code>json/optimise.json</code>, and <code>backups/</code> holding the exact code executed for each try. You can also ask your Agent where the results were saved and a link to the directory.&nbsp;</p>
       </div>
 </section>
 
@@ -1378,8 +1379,8 @@ result = optimise.optimise(sum_of_squares, tries=5)" onclick="copyCodeBlock(this
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span></code></pre>
         </div>
-          <h4>report.pdf</h4>
-          <p>A genuine PDF that includes your provider and model, whichever constraints you set, which verification method was used, a color-coded table of every try's condition and metrics with the winner called out, and the full code for every attempt. See <a href="#quickstart">Agent quickstart</a> above for a real one, generated from an actual run.</p>
+          <h4>report.html</h4>
+          <p>A self-contained, offline-viewable HTML report that includes your provider and model, whichever constraints you set, which verification method was used, a color-coded, expandable list of every try's condition and metrics with the winner called out and its diff highlighted, and the full code for every attempt. See <a href="#quickstart">Agent quickstart</a> above for a real one, generated from an actual run.</p>
           <h4>Where results are written</h4>
           <p>Everything fastercode records is written under a single results directory. It defaults to <code>.fastercode/</code> in your working directory, however you can point it anywhere you like.</p>
           <h4>Choosing the directory</h4>
@@ -1414,7 +1415,7 @@ optimise = refactor(objective=&quot;speed&quot;, results_dir=&quot;build/fasterc
     │   └── mapping_&lt;version&gt;.json     pseudonym -&gt; real name, never sent anywhere
     └── optimise_runs/
         └── run_&lt;timestamp&gt;/           one folder per optimise() run
-            ├── report.pdf             the PDF described above
+            ├── report.html            the HTML report described above
             ├── backups/
             │   └── tested_&lt;version&gt;_&lt;time&gt;.py   the code each try actually ran
             └── json/
@@ -2295,21 +2296,6 @@ def sum_of_squares(values):
           <table>
             <tbody><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
             <tr><td><code>(none)</code></td><td><code>—</code></td><td><code>—</code></td><td>Neither method takes arguments.</td></tr>
-          </tbody></table>
-        </div>
-        </div>
-      </details>
-      <details class="api-item">
-        <summary>
-          <code>refactor.constraint() · refactor.cost() · refactor.write()</code>
-          <span class="badge stub">planned</span>
-          <span class="api-toggle"></span>
-        </summary>
-        <div class="api-body">
-<div class="table-wrap">
-          <table>
-            <tbody><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
-            <tr><td><code>(none)</code></td><td><code>—</code></td><td><code>—</code></td><td>Not implemented yet.</td></tr>
           </tbody></table>
         </div>
         </div>

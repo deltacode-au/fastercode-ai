@@ -4,7 +4,7 @@ All notable changes to fastercode are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.1] - 2026-08-15
+## [0.1.0] - 2026-08-15
 
 The headline is agent mode: an MCP server that lets a coding agent measure its own rewrites
 instead of asserting they are faster.

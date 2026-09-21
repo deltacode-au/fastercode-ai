@@ -428,7 +428,7 @@ class agent(refactor):
                 continue
             for run_name in os.listdir(runs_dir):
                 run_dir = os.path.join(runs_dir, run_name)
-                report = os.path.join(run_dir, "report.pdf")
+                report = os.path.join(run_dir, "report.html")
                 found.append({
                     "run": run_name,
                     "run_dir": run_dir,

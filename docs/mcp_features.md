@@ -57,7 +57,7 @@ Every run writes a folder you can audit afterwards:
 
 | What | Where |
 |---|---|
-| The report | `report.pdf` |
+| The report | `report.html` |
 | Full measurements — every attempt, verdict and output | `json/optimise.json` |
 | The exact code executed for each try | `backups/` |
 | A `code_sha256` per attempt | in the measurements |

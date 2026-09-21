@@ -11,8 +11,8 @@ from .core import refactor
 # descriptions carry the workflow contract - which recording strategy to use,
 # and that the user gets asked - and none of that survives a direct import.
 
-__version__ = "0.1.1"
+__version__ = "0.1.0"
 __author__ = "Kyle Winkler"
 __email__ = "winkler.kyle@outlook.com"
 
-__all__ = ["FastercodeError", "refactor", "__version__"]
+__all__ = ["refactor"]
