@@ -1,4 +1,4 @@
-<a href="https://fastercode.ai" target="_blank" rel="noopener noreferrer"><img src="docs/assets/logo.svg" alt="fastercode-ai" height="72"></a>
+<img src="docs/assets/logo.svg" alt="fastercode-ai" height="72">
 
 **Make your code faster. Automatically optimise performance and verify every improvement.**
 
