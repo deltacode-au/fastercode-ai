@@ -1,4 +1,4 @@
-<h1><img src="docs/favicon.svg" width="26" height="26" align="center" alt=""> fastercode</h1>
+<img src="docs/assets/logo.svg" alt="fastercode-ai" height="72">
 
 **Make your code faster. Automatically optimise performance and verify every improvement.**
 
