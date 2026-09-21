@@ -1,0 +1,13 @@
+# Network-free variant of job.yaml, for use in a pytest test (see test_job.py).
+# Same script/entry_point/targets as job.yaml, but no post_run - a unit test
+# should assert on the deterministic tracking/patching machinery, not on a
+# non-deterministic (and network-dependent) LLM refactor.
+
+name: pytest_example
+language: python
+script: examples/target.py
+entry_point: run_pipeline
+objective: speed
+
+targets:
+  - name: calculate_average

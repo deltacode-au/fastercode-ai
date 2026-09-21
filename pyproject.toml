@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastercode-ai"
+dynamic = ["version"]
+description = "Make your runtime as fast as possible."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Kyle Winkler", email = "winkler.kyle@outlook.com" },
+]
+keywords = ["performance", "optimization", "speed", "runtime"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "openai>=1.0",
+    "PyYAML>=6.0",
+    "fpdf2>=2.8",
+    "anthropic>=0.80",
+    "mcp>=1.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/fastercode-ai/fastercode-ai"
+Repository = "https://github.com/fastercode-ai/fastercode-ai"
+Issues = "https://github.com/fastercode-ai/fastercode-ai/issues"
+
+[project.optional-dependencies]
+dev = ["pytest", "build", "twine"]
+
+[project.scripts]
+refactor = "fastercode.cli:main"
+fastercode-mcp = "fastercode.mcp_server:main"
+fastercode = "fastercode.account_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fastercode = ["py.typed"]
+
+[tool.setuptools.dynamic]
+version = { attr = "fastercode.__version__" }

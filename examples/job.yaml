@@ -1,0 +1,40 @@
+# Example job config for fastercode's optimise.run_job(...).
+# Every key here maps directly onto existing refactor methods:
+#   targets[].keep -> optimise.keep(func, variables=..., lines=...)
+#   post_run[]     -> optimise.submit(func) / optimise.swap_code(func, version)
+
+name: example_job
+language: python           # key into orchestrator.RUNNERS - only "python" exists today
+privacy_mode: true         # anonymize code (fn_xxxx/var_xxxx pseudonyms) before it's sent to the LLM
+
+# Uncomment to set the LLM key used by submit()/optimise() for this job.
+# key: ${OPENAI_API_KEY} resolves from the environment - keep it that way
+# rather than pasting a literal key into this file.
+api:
+   provider: openai
+   key: ${OPENAI_API_KEY}
+
+script: examples/target.py
+entry_point: run_pipeline  # called after all targets below are patched
+objective: speed           # "speed" or "loc" - drives the LLM prompt used by submit()
+
+targets:
+  - name: calculate_average
+   # preserve this block verbatim across refactors     # dotted name = class method
+
+# Nothing runs automatically here - add steps to actually call the LLM/swap:
+#   post_run:
+#     - action: submit
+#       target: calculate_average
+#     - action: swap
+#       target: calculate_average
+#       version: 1           # or "latest"
+#     - action: optimise
+#       target: calculate_average
+#       tries: 5
+#       mode: iterative       # or "independent"
+post_run:
+  - action: optimise 
+    target: calculate_average
+    tries: 4
+    mode: independent
