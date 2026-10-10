@@ -1,6 +1,8 @@
-<img src="docs/assets/logo.svg" alt="fastercode-ai" height="72">
+<img src="https://raw.githubusercontent.com/deltacode-au/fastercode-ai/main/docs/assets/logo.svg" alt="fastercode-ai" height="72">
 
 **Make your code faster. Automatically optimise performance and verify every improvement.**
+
+> This package is the free, open-source version of <a href="https://www.fastercode.ai">fastercode.ai</a>. For the full product, visit <a href="https://www.fastercode.ai">www.fastercode.ai</a>.
 
 fastercode doesn't just rewrite your functions — it *proves* whether a rewrite is actually better. It replays a function's real recorded calls against every candidate, checks the outputs still match, and measures execution time, lines of code, and peak memory before keeping anything. Rejected candidates are reported honestly, not hidden.
 
@@ -38,7 +40,7 @@ Or add it to any MCP client's config:
 }
 ```
 
-Then just ask your agent to make a function faster. It calls `analyse_function` to see what evidence is available, asks you which recording strategy to use, proposes candidates, and calls `optimise_function` to measure them. See [AGENTS.md](AGENTS.md) for the full workflow and tool reference.
+Then just ask your agent to make a function faster. It calls `analyse_function` to see what evidence is available, asks you which recording strategy to use, proposes candidates, and calls `optimise_function` to measure them. See [AGENTS.md](https://github.com/deltacode-au/fastercode-ai/blob/main/AGENTS.md) for the full workflow and tool reference.
 
 ## Basic example — Python API
 
@@ -63,14 +65,14 @@ result = optimise.optimise(calculate_average, tries=5)
 print(result["report_path"])
 ```
 
-Every run writes a self-contained `report.html` you can open in any browser — see a real one generated from this exact example: [`examples/example_report.html`](examples/example_report.html).
+Every run writes a self-contained `report.html` you can open in any browser — see a real one generated from this exact example: [`examples/example_report.html`](https://github.com/deltacode-au/fastercode-ai/blob/main/examples/example_report.html).
 
 ## What a report looks like
 
-![A fastercode optimisation report showing a 58.8% improvement, a before/after diff, recorded call verification, and every attempt including rejected ones](docs/assets/report-screenshot.png)
+![A fastercode optimisation report showing a 58.8% improvement, a before/after diff, recorded call verification, and every attempt including rejected ones](https://raw.githubusercontent.com/deltacode-au/fastercode-ai/main/docs/assets/report-screenshot.png)
 
 Every attempt is shown, not just the winner: the exact diff, every recorded call's input and output, and the LLM transcript (or "provided directly by agent" in MCP mode) — so a claimed improvement can be checked, not just trusted.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/deltacode-au/fastercode-ai/blob/main/LICENSE).

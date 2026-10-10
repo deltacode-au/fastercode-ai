@@ -14,7 +14,7 @@ authors = [
 ]
 keywords = ["performance", "optimization", "speed", "runtime", "developer tools"]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
@@ -38,7 +38,6 @@ dev = ["pytest", "build", "twine"]
 [project.scripts]
 refactor = "fastercode.cli:main"
 fastercode-mcp = "fastercode.mcp_server:main"
-fastercode = "fastercode.account_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
